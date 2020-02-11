@@ -14,14 +14,14 @@ class Town {
        
     }
 
-    //This gives us list of neighbours in case of 10 it would be [8, 9]
+    //This gives us list of neighbours in (case of 10 it would be [8, 9])
     getNeighbourList(root){
         this.neighbourList = [];
         //connectionList from graph (something like [1, 0, 1, 0....])
         this.connectionList = this.graph[root];
         //Next using connectionsList we can have list of neighbours
         let idx = this.connectionList.indexOf(1);
-        //when new instances of 1's are not found indexOf returns -1
+        //If new instances of 1's are not found indexOf returns -1
         while(idx > -1){
             //neighbour to neighbourlist
             this.neighbourList.push(idx);
@@ -35,7 +35,7 @@ class Town {
         //Root is starting point where all distances all calculated from
         this.root = root;
 
-         //To root distance is zero
+         //To root, distance is zero
          this.distances[root] = 0;
        
         //In the beginning in worklist is only root
@@ -56,6 +56,7 @@ class Town {
                 //if neighbourgs distance is Infinity, it needs to be updated
                 if(this.distances[this.neighbourList[j]] == Infinity){
                     this.distances[this.neighbourList[j]] = this.distances[this.current] + 1;
+                    //Let's put neighbour to worklist so we can process it later
                     this.workList.push(this.neighbourList[j]);
                 }
 

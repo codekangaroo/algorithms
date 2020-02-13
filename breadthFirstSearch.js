@@ -49,6 +49,7 @@ class Town {
             }
              //shift returns zeroeth object from list and removes it
             this.current = this.workList.shift();
+            //Let's find out who are current's neighbours
             this.getNeighbourList(this.current);
            
             //Let's go through neighbourglist
